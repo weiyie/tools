@@ -1,5 +1,3 @@
-import * as time from "./time";
-
-export default {
-  ...time,
-};
+export * from "./base/index";
+export * from "./serverless/index";
+export * from "./time/index";

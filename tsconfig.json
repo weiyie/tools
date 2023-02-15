@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
     // 是否自动创建类型声明文件
     "declaration": true,
     // 类型声明文件的输出目录
