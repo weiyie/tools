@@ -32,7 +32,7 @@ type AllTime = {
  * getCommonTime();
  */
 
-export const getCommonTime = async function ({ date, targetTimezone }) {
+export const getCommonTime = async function (date, targetTimezone) {
   let res: AllTime = {} as any;
   date = date ? new Date(Number(date)) : new Date();
   targetTimezone = targetTimezone || 8;
