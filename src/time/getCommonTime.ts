@@ -32,12 +32,13 @@ type AllTime = {
  * getCommonTime();
  */
 
-export const getCommonTime = async function (date, targetTimezone) {
+export const getCommonTime = function (timestamp: number | string = new Date().valueOf(), targetTimezone = 8) {
   let res: AllTime = {} as any;
-  date = date ? new Date(Number(date)) : new Date();
-  targetTimezone = targetTimezone || 8;
+
+  const date = new Date(Number(timestamp));
   const dif = date.getTimezoneOffset();
   const timeDif = dif * 60 * 1000 + targetTimezone * 60 * 60 * 1000;
+
   res.utcTimeNow = date.valueOf() - timeDif;
 
   const { year, month, day, hour, minute, second } = getFullTime(date, 2) as any;

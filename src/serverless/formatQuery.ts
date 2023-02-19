@@ -1,6 +1,6 @@
 import { type } from "../base/index";
 
-export function format(obj, typeObj) {
+export function formatQuery(obj, typeObj) {
   Object.keys(typeObj).forEach((item) => {
     let curTypeObj = typeObj[item];
 
