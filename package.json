@@ -1,6 +1,6 @@
 {
   "name": "weiyie-tools",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -14,7 +14,7 @@
     "build": "npm run build:types && rollup -c --bundleConfigAsCjs",
     "prepublish": "pnpm version && pnpm build",
     "autoCommit": "git add package.json && git commit -m 'publish auto commit' && git push origin",
-    "auto": "node generateVersion.js && npm publish && npm run autoCommit "
+    "auto": "node generateVersion.js && npm run prepublish && npm publish && npm run autoCommit "
   },
   "keywords": [],
   "author": "",
