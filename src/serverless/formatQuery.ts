@@ -19,6 +19,10 @@ export function formatQuery(obj, typeObj) {
       return;
     }
 
+    if (curTypeObj.isEncode && type(obj[item]) === "string") {
+      obj[item] = decodeURI(obj[item]);
+    }
+
     const typeVal = curTypeObj.type;
 
     if (type(obj[item]) === typeVal) {
@@ -44,8 +48,8 @@ export function formatQuery(obj, typeObj) {
       return;
     }
 
-    if (typeVal === 'number[]') {
-      obj[item] = obj[item].split(",").map(item => Number(item));
+    if (typeVal === "number[]") {
+      obj[item] = obj[item].split(",").map((item) => Number(item));
       return;
     }
 

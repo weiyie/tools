@@ -14,3 +14,7 @@ export function getText(originText: string, price: number[], scale = 1): string 
 
   return textArr.join("\n");
 }
+
+export function getSaveText(name: string, priceLabel, desc: string): string {
+  return [name, priceLabel, desc].join("\n");
+}
