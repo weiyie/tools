@@ -44,6 +44,11 @@ export function formatQuery(obj, typeObj) {
       return;
     }
 
+    if (typeVal === 'number[]') {
+      obj[item] = obj[item].split(",").map(item => Number(item));
+      return;
+    }
+
     if (typeVal === "array") {
       obj[item] = obj[item].split(",");
     }
