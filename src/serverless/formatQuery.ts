@@ -15,7 +15,7 @@ export function formatQuery(obj, typeObj) {
 
     // 如果不存在值，则设置为默认值
     if (obj[item] === undefined) {
-      obj[item] = curTypeObj.default;
+      obj[item] = type(curTypeObj.default) === "function" ? curTypeObj.default() : curTypeObj.default;
       return;
     }
 
