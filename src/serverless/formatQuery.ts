@@ -19,7 +19,7 @@ export function formatQuery(obj, typeObj) {
       return;
     }
 
-    if (curTypeObj.isEncode && type(obj[item]) === "string") {
+    if (curTypeObj.isEncode && ["object", "string"].includes(type(obj[item]))) {
       obj[item] = decodeURI(obj[item]);
     }
 
