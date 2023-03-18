@@ -1,6 +1,6 @@
 import { type } from "../base/index";
 
-export function formatQuery(obj, typeObj) {
+export function formatQuery(obj, typeObj, { isCreate = true } = {}) {
   Object.keys(typeObj).forEach((item) => {
     let curTypeObj = typeObj[item];
 
@@ -13,8 +13,8 @@ export function formatQuery(obj, typeObj) {
       };
     }
 
-    // 如果不存在值，则设置为默认值
-    if (obj[item] === undefined) {
+    // 如果不存在值，则设置为默认值(仅创建模式)
+    if (obj[item] === undefined && isCreate) {
       obj[item] = type(curTypeObj.default) === "function" ? curTypeObj.default() : curTypeObj.default;
       return;
     }
@@ -43,7 +43,7 @@ export function formatQuery(obj, typeObj) {
       try {
         obj[item] = JSON.parse(obj[item]);
       } catch (error) {
-        obj[item] = curTypeObj.default;
+        obj[item] = isCreate ? curTypeObj.default : undefined;
       }
       return;
     }
